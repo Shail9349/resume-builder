@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder Pro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="/manifest.json">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-file-alt"></i> Resume Builder Pro</h1>
+            <div class="theme-toggle">
+                <span>Light</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+                <span>Dark</span>
+            </div>
+        </header>
+
+        <div class="builder-container">
+            <div class="resume-form">
+                <div class="templates">
+                    <h3>Choose a Template:</h3>
+                    <button data-template="professional" class="active">Professional</button>
+                    <button data-template="modern">Modern</button>
+                    <button data-template="creative">Creative</button>
+                </div>
+
+                <div class="form-section">
+                    <h2><i class="fas fa-user"></i> Personal Information</h2>
+                    <div class="form-group">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" placeholder="John Doe">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="profession">Profession:</label>
+                        <input type="text" id="profession" placeholder="Software Developer">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="john@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" placeholder="(123) 456-7890">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" placeholder="123 Main St, City, Country">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn:</label>
+                        <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="github">GitHub:</label>
+                        <input type="url" id="github" placeholder="https://github.com/yourusername">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                    <div class="form-group">
+                        <label for="degree">Degree:</label>
+                        <input type="text" id="degree" placeholder="Bachelor of Science in Computer Science">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="university">University:</label>
+                        <input type="text" id="university" placeholder="University of Example">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="graduation">Graduation Year:</label>
+                        <input type="text" id="graduation" placeholder="2020">
+                    </div>
+                    <button id="add-education" class="add-btn">+ Add Another Education</button>
+                </div>
+
+                <div class="form-section">
+                    <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+                    <div class="form-group">
+                        <label for="job-title">Job Title:</label>
+                        <input type="text" id="job-title" placeholder="Software Developer">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company:</label>
+                        <input type="text" id="company" placeholder="Tech Corp Inc.">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="years">Years:</label>
+                        <input type="text" id="years" placeholder="2020 - Present">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Job Description:</label>
+                        <textarea id="description" placeholder="Developed web applications using JavaScript, HTML, and CSS..."></textarea>
+                    </div>
+                    <button id="add-experience" class="add-btn">+ Add Another Experience</button>
+                </div>
+
+                <div class="form-section">
+                    <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+                    <div class="form-group">
+                        <label for="project-title">Project Title:</label>
+                        <input type="text" id="project-title" placeholder="E-commerce Website">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="project-desc">Description:</label>
+                        <textarea id="project-desc"></textarea>
+                    </div>
+                    <button id="add-project" class="add-btn">+ Add Another Project</button>
+                </div>
+
+                <div class="form-section">
+                    <h2><i class="fas fa-tools"></i> Skills</h2>
+                    <div class="form-group">
+                        <label for="skills">List your skills (comma separated):</label>
+                        <input type="text" id="skills" placeholder="HTML, CSS, JavaScript, Python">
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="generate-btn"><i class="fas fa-magic"></i> Generate Resume</button>
+                    <button id="download-btn" disabled><i class="fas fa-download"></i> Download PDF</button>
+                    <button id="share-btn" disabled><i class="fas fa-share-alt"></i> Share</button>
+                    <button id="reset-btn"><i class="fas fa-redo"></i> Reset Form</button>
+                </div>
+            </div>
+            
+            <div class="resume-preview">
+                <h2><i class="fas fa-eye"></i> Resume Preview</h2>
+                <div id="resume-output" class="professional">
+                    <p>Your resume will appear here after you fill the form and click "Generate Resume".</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
